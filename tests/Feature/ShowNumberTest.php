@@ -18,14 +18,12 @@ class TestMainController extends TestCase
     public function testShowNumber()
     {
         $controller  = new MainController();
-        $resultData1 = $controller->showNumber('5')
+        $received1 = $controller->showNumber('5')
                                   ->getData()["param"];
-        $resultData1 = [];
-        $resultData2 = $controller->showNumber('asd')
+        $received2 = $controller->showNumber('asd')
                                   ->getData();
-        $resultData2 = 'asd';
 
-        $this->assertEquals(5, $resultData1, "Received: $resultData1");
-        $this->assertEquals([], $resultData2, "Expected: []");
+        $this->assertEquals(5, $received1);
+        $this->assertEquals([], $received2);
     }
 }
