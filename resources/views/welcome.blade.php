@@ -51,13 +51,21 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .error {
+                font-size: 150px;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    {{ $param }}
+                    @if(is_numeric($param))
+                        {{ $param }}
+                    @else
+                        <p class="error">Invalid parameter set!</p>
+                    @endif
                 </div>
             </div>
         </div>

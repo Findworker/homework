@@ -17,13 +17,9 @@ class TestMainController extends TestCase
      */
     public function testShowNumber()
     {
-        $controller  = new MainController();
-        $received1 = $controller->showNumber('5')
-                                  ->getData()["param"];
-        $received2 = $controller->showNumber('asd')
-                                  ->getData();
-
-        $this->assertEquals(5, $received1);
-        $this->assertEquals([], $received2);
+        $this->visit('/5')
+             ->see('5');
+        $this->visit('/asd')
+             ->see('Invalid parameter set!');
     }
 }
